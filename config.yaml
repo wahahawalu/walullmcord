@@ -14,7 +14,7 @@ allow_dms_env: ALLOW_DMS
 
 permissions:
   users:
-    admin_ids_env: ADMIN_IDS
+    admin_ids_env: [ADMIN_IDS]
     allowed_ids: []
     blocked_ids: []
 
