@@ -3,18 +3,18 @@
 bot_token_env: DISCORD_BOT_TOKEN
 client_id_env: DISCORD_CLIENT_ID
 
-status_message: 
+status_message_env: STATUS_MESSAGE 
 
 max_text: 100000
 max_images: 5
 max_messages: 25
 
 use_plain_responses: false
-allow_dms: true
+allow_dms_env: ALLOW_DMS
 
 permissions:
   users:
-    admin_ids: []
+    admin_ids_env: ADMIN_IDS
     allowed_ids: []
     blocked_ids: []
 
@@ -59,16 +59,15 @@ providers:
     base_url: http://localhost:8000/v1
 
 models:
-  openai/gpt-5.5:
-    reasoning_effort: high
-    verbosity: medium
-
-  openrouter/~anthropic/claude-opus-latest:
+    openrouter/qwen/qwen3.8-27b:free:
     tools:
-      - type: openrouter:web_search
-      - type: openrouter:web_fetch
-
-  ollama/llama4:
+      - type: openrouter:datetime
+    openrouter/deepseek/deepseek-v4-flash-0731:free:
+    tools:
+      - type: openrouter:datetime
+    openrouter/inclusionai/ling-3.0-flash-vl:free:
+    tools:
+      - type: openrouter:datetime
 
 system_prompt: |
   You are a snarky Discord chatbot. Be informative but harsh.
